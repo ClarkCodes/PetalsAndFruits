@@ -1,0 +1,55 @@
+<!-- Reproductor de Musica Personalizado - Desarrollado por ClarkCodes entre el 1 y el 5 de Noviembre del 2024, se termino de refinar a las 16:35 -->
+
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="ClarksAudioPlayerStyles.css"/>
+<body>
+    <div class="PlayerContainer">
+        <div class="ClarkCodesLogoClass">
+            <button id="clarkCodesLogoImagotypeButtonId">
+                <img id="clarkCodesLogoImagotypeId" src="images/ClarkCodes Logo OnTransparent_100x100px_300ppi.webp" width="30px" alt="ClarkCodes Logo Imgotipo">
+            </button>
+            <img id="clarkCodesLogoTextId" src="images/ClarkCodes only Text OnTransparent.webp" width="30px" alt="ClarkCodes Logo Text">
+        </div>
+        <div class="BasicInfoClass">
+            <h2 id="titleId">Espera en el cielo</h2>
+            <h3 id="artistAlbumId">Mago de Oz - Ira Dei</h3>
+        </div>
+        <div class="ProgressBarClass">
+            <input type="range" id="progressBarSliderId" min="0" value="0" step="1">
+            <div class="DurationClass">
+                <span id="currentTimeId">0:00</span>
+                <span id="totalTimeId">0:00</span>
+            </div>
+        </div>
+        <div class="ControlsClass">
+            <div id="controlsLeftSpacer"></div>
+            <div class="MainControlsClass">
+                <button id="playPauseReplayButtonId">
+                    <img src="icons/play_arrow_24dp_E8EAED_FILL1_wght400_GRAD0_opsz24.svg" alt="Play and Pause Icon">
+                </button>
+                <button id="stopButtonId">
+                    <img src="icons/stop_24dp_E8EAED_FILL1_wght400_GRAD0_opsz24.svg" alt="Stop Icon">
+                </button>
+            </div>
+            <div class="RightSideControlsClass">
+                <div class="VolumeControlClass">
+                    <button id="volumeButtonId">
+                        <img src="icons/volume_down_alt_24dp_E8EAED_FILL1_wght400_GRAD0_opsz24.svg" alt="Volume Icon">
+                    </button>
+                    <div class="VolumeSliderClass">
+                        <input type="range" id="volumeSliderId" min="0" max="100" value="50">
+                        <span id="volumeValueId">50</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <audio id="audioMagoDeOzSongId">
+            <source src="audios/Espera_en_el_cielo_Mago_de_Oz.weba" type="audio/ogg; codecs=opus"/>
+            Tu navegador no admite el formato Opus.
+        </audio>
+    </div>
+</body>
+<script src="ClarksAudioPlayerScript.js"></script>

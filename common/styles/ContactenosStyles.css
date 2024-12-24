@@ -1,0 +1,84 @@
+@import url( "BaseCommonStyles.css" );
+@import url( "../theme/themeStyles.css" );
+
+.ContentClass {
+    display: flex;
+    flex-direction: row;
+}
+
+.ContactenosClass {
+    width: 100%;
+}
+
+.ResultadoClass {
+    margin-inline: auto;
+    width: 80%;
+}
+
+form {
+    input[type="text"], input[type="email"], input[type="tel"]  {
+        width: 98%;
+        padding: 8px;
+        margin-top: 1vh;
+        margin-bottom: 3vh;
+        padding-inline: 1vw;
+        border-radius: 4px; 
+        box-sizing: border-box;
+    }
+
+    .PhoneAndMailClass {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        
+        #phoneDivId {
+            width: 42%;
+        }
+
+        #mailDivId {
+            width: 58%;
+        }
+
+        div {
+            margin-left: -.05vw;
+
+            input[type="email"], input[type="tel"]  {
+                margin-inline: 0%;
+            }
+        }
+    }
+
+    #lblAcceptanceId {
+        cursor: pointer;
+        padding: 0;
+        margin-left: 10px;
+    }
+
+    input[type="checkbox"] {
+        cursor: pointer;
+        transform: scale( 2 );
+        margin-right: 20px;
+    }
+
+    select {
+        width: 98%;
+        padding: 8px;
+        margin-top: 1vh;
+        margin-bottom: 11vh;
+        padding-inline: 1vw;
+        border-radius: 4px;
+        box-sizing: border-box;
+        cursor: pointer;
+    }
+
+    input[type="submit"] {
+        border: none;
+        width: 98%;
+        padding: 10px 30px;
+        margin-top: 4vh;
+        margin-bottom: 10vh;
+        border-radius: 5px;
+        text-transform: uppercase;
+        cursor: pointer;
+    }
+}

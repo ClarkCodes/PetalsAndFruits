@@ -1,0 +1,329 @@
+/* Estilos del Reproductor de Musica Personalizado - Desarrollado por ClarkCodes entre el 1 y el 5 de Noviembre del 2024, se termino de refinar a las 16:35 */
+
+@import url( "baseCommonStyles.css" );
+
+* { 
+    font-size: 11pt;
+    font-family: 'Poppins';
+    font-weight: normal;
+}
+
+body {
+    background-color: rgba( 0, 0, 0, 0 );
+    display: grid;
+    place-self: center;
+}
+
+h2 {
+    font-size: 16pt;
+}
+
+h3 {
+    font-size: 12pt;
+}
+
+.PlayerContainer::before {
+    position: absolute;
+    z-index: -1;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-image: url( "images/Espera_En_el_cielo_Image_MagoDeOz_Ira_Dei_Album_CoverImage.jpg" );
+    background-position:top;
+    background-size: cover;
+    background-color: orange;
+    filter: blur( .5px ) brightness( .8 );
+    opacity: .7;
+    border-radius: 17px;
+}
+
+.PlayerContainer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40vw;
+    height: 240px;
+    min-width: 384px;
+    min-height: 240px;
+    border-radius: 17px;
+    border: 1px solid orange;
+    box-shadow: 0 12px 24px 0 rgba( 0, 0, 0, .4 );
+    color: whitesmoke;
+
+    button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        background: none;
+        border: 0;
+        user-select: none;
+        width: 40px;
+        height: 40px;
+    }
+    
+    .ClarkCodesLogoClass {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 5px;
+        height: 52px;
+        width: 84%;
+
+        #clarkCodesLogoImagotypeButtonId {
+            transform: translateX( 15px );
+            border-radius: 50%;
+            transition: transform .3s ease-in-out, filter .65s ease-in-out, background-color .3s ease;
+
+            img {
+                transition: filter .4s ease-in-out;
+            }
+        }
+
+        #clarkCodesLogoTextId {
+            transform: translateX( -10px );
+            opacity: 0;
+            transition: opacity .15s ease, filter .5s ease-out;
+        }
+
+        &:hover {
+            #clarkCodesLogoImagotypeButtonId {
+                background-color: rgba( 0, 0, 0, .8 );
+                opacity: .85;
+
+                /* Media Queries to fix the translateX of the Logo Button when resizing the window and its position stil look ok when animating, making it responsive */
+                @media( max-width: 550px ) {
+                    transform: translateX( -24vw );
+                }
+
+                @media (min-width: 551px) and (max-width: 600px) {
+                    transform: translateX( -22.5vw );
+                }
+
+                @media (min-width: 601px) and (max-width: 700px) {
+                    transform: translateX( -19.5vw );
+                }
+
+                @media (min-width: 701px) and (max-width: 850px) {
+                    transform: translateX( -15.8vw );
+                }
+
+                @media (min-width: 851px) and (max-width: 920px) {
+                    transform: translateX( -14.4vw );
+                }
+
+                @media (min-width: 921px) and (max-width: 1150px) {
+                    transform: translateX( -13.55vw );
+                }
+
+                @media (min-width: 1151px) and (max-width: 1450px) {
+                    transform: translateX( -14.5vw );
+                }
+
+                @media (min-width: 1451px) and (max-width: 1550px) {
+                    transform: translateX( -14.8vw );
+                }
+
+                @media (min-width: 1551px) and (max-width: 1799px) {
+                    transform: translateX( -14.5vw );
+                }
+
+                @media (min-width: 1800px) and (max-width: 1920px) {
+                    transform: translateX( -15vw );
+                }
+
+                @media( min-width: 1921px ) {
+                    transform: translateX( -17vw );
+                }
+                
+                
+                &:hover {
+                    filter: drop-shadow( 0px 0px 7px var( --kv-secondary-accent-color-darkest ) );
+                    transition: filter .2s ease-out;
+                }
+                
+                img {
+                    filter: drop-shadow( 0px 0px 3px var( --kv-secondary-accent-color-darkest ) );
+                    transition: filter .65s ease-in-out;
+                }
+            }
+
+            #clarkCodesLogoTextId {
+                cursor: pointer;
+                scale: 2.1;
+                opacity: 1;
+                transition: scale .25s ease-in-out, opacity .15s ease, filter .4s ease-out;
+
+                &:hover {
+                    filter: drop-shadow( 0px 0px 1.2px var( --kv-secondary-accent-color-darkest ) );
+                    transition: filter .3s ease;
+                }
+            }
+        }
+    }
+
+    .BasicInfoClass {
+        position: relative;
+        flex-direction: column;
+        align-items: start;
+        padding-inline: 0vw;
+        margin-top: 52px;
+        width: 84%;
+
+        h2, h3 {
+            line-height: 10pt;
+            margin-top: 0vh;
+        }
+
+        #titleId {
+            font-weight: bold;   
+        }
+    }
+
+    .ProgressBarClass {
+        position: relative;
+        justify-content: left;
+        align-items: center;
+        border-radius: 5px;
+        margin-top: 5px;
+        width: 84%;
+        height: 1px;
+
+        #progressBarSliderId {
+            position: relative;
+            cursor: pointer;
+            width: 100%;
+            opacity: .58;
+            transition: opacity .2s ease;
+
+            &:hover {
+                opacity: 1;
+                transition: opacity .2s ease;
+            }
+        }
+
+        .DurationClass {
+            position: relative;
+            display: flex;
+            width: 100%;
+            margin-top: -.2vh;
+            justify-content: space-between;
+            flex-direction: row;
+            color: rgba( 255, 255, 255, .58 );
+
+            #currentTimeId {
+                margin-left: .3vw;
+            }
+
+            #totalTimeId {
+                justify-self: end;
+            }
+        }
+    }
+    
+    .ControlsClass {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 1vh;
+        margin-top: 49px;
+        width: 84%;
+
+        img {
+            scale: 1.7;
+        }
+
+        button {
+            border-radius: 50%;
+            opacity: .8;
+            transition: background-color .3s ease, opacity .3s ease, filter .3s ease-out;
+
+            &:active { 
+                opacity: 1;
+                background-color: rgba( 255, 255, 255, .4 );
+                filter: drop-shadow( 0px 0px 10px var( --kv-secondary-accent-color-darkest ) );
+                transition: background-color .3s ease, filter .3s ease-out;
+            }
+
+            &:hover {
+                opacity: 1;
+                filter: drop-shadow( 0px 0px 10px var( --kv-secondary-accent-color-darkest ) );
+                transition: opacity .15s ease, filter .15s ease;
+            }
+        }
+
+        #controlsLeftSpacer {
+            width: 33%;
+        }
+
+        .MainControlsClass {
+            display: flex;
+            width: 33%;
+            button {
+                margin-inline: auto;
+            }
+        }
+
+        .RightSideControlsClass {
+            width: 33%;
+            display: flex;
+            align-items: center;
+            justify-content: right;
+
+            .VolumeControlClass {
+                display: flex;
+                align-items: center;
+                justify-content: right;
+                width: 10px;
+    
+                #volumeButtonId {
+                    transform: translateX( 7.3vw );
+                    transition: transform .3s ease;
+                }
+
+                .VolumeSliderClass {
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+                    justify-content: right;
+                    width: 7vw;
+                    transition: opacity .1s ease, visibility .1s ease;
+                    opacity: 0;
+                    visibility: hidden;
+    
+                    #volumeSliderId {
+                        width: 5vw;
+                        margin-inline: .5vw;
+                        cursor: pointer;
+                    }
+
+                    #volumeValueId {
+                        color: rgba( 255, 255, 255, .58 );
+                        width: 5px;
+                        margin-right: 17px;
+                    }
+                }
+                
+                &:hover { 
+                    #volumeButtonId {
+                        transform: translateX( -1px );
+                        transition: transform .15s ease;
+                    }
+
+                    .VolumeSliderClass {
+                        display: flex;
+                        transition: opacity .1s ease, visibility .1s ease;
+                        opacity: 1;
+                        visibility: visible;
+                    }
+                }
+            }
+        }
+    }
+}
+
+audio {
+    display: none;
+}

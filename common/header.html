@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel = "stylesheet" type="text/css" href="styles/HeaderStyles.css" />
+<header>
+    <div class="HeaderLogoDivClass">
+        <a href="../pages/index.html" target="_parent" data-page="index.html">
+            <img src="images/Petals&Fruits_Logo_Only_Text_White.webp" alt="Petals&Fruits Text Logo" height="40px">
+        </a>
+    </div>
+    <div  class="HeaderLinksClass">
+        <nav>
+            <ul>
+                <li data-page="index.html"><a href="../pages/index.html" target="_parent" >Inicio</a></li>
+                <li data-page="QuienesSomos.html"><a href="../pages/QuienesSomos.html" target="_parent" >Quienes Somos</a></li>
+                <li data-page="ProductosServicios.html"><a href="../pages/ProductosServicios.html" target="_parent" >Productos y Servicios</a></li>
+                <li data-page="NuestroEquipo.html"><a href="../pages/NuestroEquipo.html" target="_parent" >Nuestro Equipo</a></li>
+                <li data-page="Contactenos.php"><a href="../pages/Contactenos.html" target="_parent" >Contáctenos</a></li>
+            </ul>
+        </nav>        
+    </div>
+</header>
+<script>
+    window.addEventListener( 'message', ( event ) => {
+        const currentPage = event.data;
+        const menuNavLinks = document.querySelectorAll( '.HeaderLinksClass nav ul li' );
+
+        menuNavLinks.forEach( menuLink => {
+            
+            if ( menuLink.getAttribute( 'data-page' ) === currentPage && !menuLink.classList.contains( 'ActivePageMenu' ) ) {
+                menuLink.classList.add( 'ActivePageMenu' );
+            } else if ( menuLink.classList.contains( 'ActivePageMenu' ) && menuLink.getAttribute( 'data-page' ) != currentPage )
+                menuLink.classList.remove( 'ActivePageMenu' );
+        } );
+    } );
+</script>

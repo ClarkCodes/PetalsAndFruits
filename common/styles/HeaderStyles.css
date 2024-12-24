@@ -1,0 +1,100 @@
+@import url( "BaseCommonStyles.css" );
+
+* { 
+    font-size: 13pt;
+    font-family: Poppins;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+/* Header Section - Estilo del Encabezado */
+
+header {
+    height: 85px;
+    background: var( --primary-accent-color-darkest );
+    color: white;
+    padding: 0;
+    gap: 50px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    nav ul {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+  
+        li {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &:hover {
+                border-top: var( --active-menu-top-bottom-border );
+                border-bottom: var( --active-menu-top-bottom-border );
+                border-radius: var( --active-menu-border-radius );
+                
+                a {
+                    color: white;
+                    text-shadow: var( --active-menu-text-shadow );
+                }
+            }
+  
+            a {
+                color: var( --foreground-white-color-61 );
+                text-decoration: none;
+                height: 100%;
+            }
+        }
+    }
+}
+
+.ActivePageMenu { /* Style for the selected menu based on current page, this style exist also in the theme script to hover on menus, this and that one must match and be the same  */
+    border-top: var( --active-menu-top-bottom-border );
+    border-bottom: var( --active-menu-top-bottom-border );
+    border-radius: var( --active-menu-border-radius );
+                
+    a {
+        color: white;
+        text-shadow: var( --active-menu-text-shadow );
+    }
+}
+
+.HeaderLogoDivClass {
+    width: 30%;
+    justify-content: right;
+
+    a img {
+        cursor: pointer;
+        opacity: .85;
+        filter: drop-shadow( 0px 0px 25px var( --kv-secondary-accent-color-darkest ) );
+    }
+}
+
+.HeaderLinksClass {
+    /*z-index: 3;*/
+    height: 100%;
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+
+    a {
+        text-decoration: none;
+        padding-inline: 2vw;
+        height: fit-content;
+    }
+
+    @media( max-width: 1217px ) {
+        flex-direction: column;
+        justify-content: center;
+        
+        a {
+            padding-top: 40px;
+            width: fit-content;
+            margin-inline: auto;
+        }
+    }
+}
