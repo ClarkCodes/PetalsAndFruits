@@ -1,0 +1,67 @@
+@import url( "BaseCommonStyles.css" );
+
+#pageMainImageDivId {
+    position: relative;
+    text-align: center;    
+    display: flex;
+    justify-content: center;
+    background-image: url( "../images/autumn-5519836_1920.png" );
+    height: 1000px;
+
+    h1 {
+        margin-top: 55px;
+        color: var( --primary-accent-color-darkest );
+        line-height: 175pt;
+        height: fit-content;
+    }
+}
+
+section { 
+    margin-inline: -4.3%;
+}
+
+.Remember {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    background: var( --light-theme-hero-background );
+    border-bottom: var( --blocks-border );
+    padding-top: 4rem;
+    padding-bottom: 7rem;
+
+    p {
+        align-self: center;
+        width: 50vw;
+        font-size: x-large;
+        text-align: center;
+    }
+}
+
+#videoDIYRecomendacionArreglo, #beneficios, #FloresYSusBeneficios {
+    padding-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    iframe {
+        padding-top: 3rem;
+    }
+}
+
+#FloresYSusBeneficios {
+    line-height: 30pt;
+    padding-bottom: 10rem;
+    border-bottom: var( --blocks-border );
+    
+    td {
+        padding-left: 10px;
+    }
+
+    tfoot {
+        td {
+            border: 0;
+            text-align: center;
+        }
+    }
+}

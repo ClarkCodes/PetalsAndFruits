@@ -11,8 +11,8 @@
 /* Header Section - Estilo del Encabezado */
 
 header {
-    height: 85px;
-    background: var( --primary-accent-color-darkest );
+    height: 70px;
+    background: var( --primary-accent-color-darkest-30 );
     color: white;
     padding: 0;
     gap: 50px;
@@ -31,9 +31,15 @@ header {
             justify-content: center;
             align-items: center;
 
+            a {
+                color: var( --foreground-white-color-61 );
+                text-decoration: none;
+                height: 100%;
+            }
+
             &:hover {
                 border-top: var( --active-menu-top-bottom-border );
-                border-bottom: var( --active-menu-top-bottom-border );
+                border-bottom: 2px solid transparent;
                 border-radius: var( --active-menu-border-radius );
                 
                 a {
@@ -41,19 +47,13 @@ header {
                     text-shadow: var( --active-menu-text-shadow );
                 }
             }
-  
-            a {
-                color: var( --foreground-white-color-61 );
-                text-decoration: none;
-                height: 100%;
-            }
         }
     }
 }
 
 .ActivePageMenu { /* Style for the selected menu based on current page, this style exist also in the theme script to hover on menus, this and that one must match and be the same  */
     border-top: var( --active-menu-top-bottom-border );
-    border-bottom: var( --active-menu-top-bottom-border );
+    border-bottom: 2px solid transparent;
     border-radius: var( --active-menu-border-radius );
                 
     a {
@@ -74,7 +74,6 @@ header {
 }
 
 .HeaderLinksClass {
-    /*z-index: 3;*/
     height: 100%;
     width: 70%;
     display: flex;
