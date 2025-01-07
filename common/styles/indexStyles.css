@@ -92,10 +92,40 @@
     }
 }
 
+.FigureClass {
+    padding: 10rem 1rem;
+    display: flex;
+    justify-content: center;
+    margin-inline: -4.3%;
+
+    figure {
+        width: fit-content;
+        text-align: center;
+        line-height: 40pt;
+    }
+}
+
+.IntermidiateTitle {
+    text-align: center;
+    line-height: 40pt;
+}
+
+.Spacer {
+    padding-bottom: 17rem;
+}
+
+#audioPlayerSectionId {
+    display: flex;
+    justify-content: center;
+    margin-inline: -4.3%;
+}
+
+
 .RazonesEleccion {
     background: var( --light-theme-hero-background );
     padding: 10rem 1rem;
     color: var( --foreground-gray-5-color );
+    border-top: var( --blocks-border );
     border-bottom: var( --blocks-border );
     margin-inline: -4.3%;
     display: flex;
@@ -120,19 +150,5 @@
 
     div {
         width: 50%;
-    }
-}
-  
-.FigureClass {
-    padding: 10rem 1rem;
-    display: flex;
-    justify-content: center;
-    border-bottom: var( --blocks-border );
-    margin-inline: -4.3%;
-
-    figure {
-        width: fit-content;
-        text-align: center;
-        line-height: 40pt;
     }
 }

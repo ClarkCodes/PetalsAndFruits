@@ -103,6 +103,16 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Danymeka';
+    src: url('../fonts/Danymeka-lxx2D.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+/* General Common Styles */
+
 * { 
     font-size: 11.5pt;
     font-family: Poppins;
@@ -230,6 +240,7 @@ button {
 }
 
   /* Sección de Productos */
+  
   .Productos {
     display: flex;
     flex-direction: column;

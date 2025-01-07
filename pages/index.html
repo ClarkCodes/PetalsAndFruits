@@ -5,11 +5,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="author" content="Fidel Velásquez Mendoza">
         <meta name="creator" content="Grupo #4 - Desarrollo de Aplicaciones Web - SOF-S-VE-6-2">
-        <meta name="description" content="Página de Tienda de Arreglos Florales y Frutales.">
+        <meta name="description" content="Página de Inicio - Tienda de Arreglos Florales y Frutales.">
         <meta name="keywords" content="arreglos, florales, frutales, floristeria, flores, frutas">
         <link rel = "stylesheet" type="text/css" href="../common/styles/indexStyles.css" />
         <link rel="icon" type="image/x-icon" href="../common/icons/Petals&Fruits_FAVICON.ico" />
         <script src="../common/scripts/Management.js"></script>
+        <!-- <script src="../common/components/ClarkCodesAudioPlayer/ClarkCodesAudioPlayer.js"></script> -->
         <title>Petals&Fruits - Inicio</title>
     </head>
     <body>
@@ -29,23 +30,23 @@
                 <div class="GrupoProductos">
                     <div class="producto">
                         <img src="../common/images/Bouquet-RosasRosadas_1280.jpg" alt="Bouquet de Rosas Rosadas">
-                        <h3>Arreglo Floral Elegante</h3>
-                        <p>Este arreglo sofisticado es perfecto para eventos formales y celebraciones.</p>
+                        <h3>Esfera de Rosas Pastel</h3>
+                        <p>Sofisticado y fino ramo esférico de Rosas grandes y pequeñas, con colores pastel violeta y Rosado.</p>
                     </div>
                     <div class="producto">
                         <img src="../common/images/Bouquet-RosasBlancasAmarillas_1280.jpg" alt="Rosas Blancas y Amarillas">
-                        <h3>Rosas Blancas y Amarillas</h3>
-                        <p>Un hermoso arreglo con flores de temporada, ideal para regalar en cualquier ocasión especial.</p>
+                        <h3>Caja Presente de Rosas</h3>
+                        <p>Rosas Blancas y Amarillas en una caja de obsequio con un lacito, elegante y detallista.</p>
                     </div>
                     <div class="producto">
                         <img src="../common/images/Frutales_ChocoFresas_Multisabor-2048x2048.jpg" alt="Multisabor">
                         <h3>Multisabor</h3>
-                        <p>Un toque gourmet con frutas seleccionadas, ideal para regalar a los más exigentes.</p>
+                        <p>Un variado vaso con fresas naturales, y bañadas en chocolate pero aderezadas con diferentes deliciosos aditivos entre maní, coco, chocolate blanco y el que tu elijas.</p>
                     </div>
                     <div class="producto">
-                        <img src="../common/images/Frutales_Gourmet_RebanadasFrutales-2048x2048.jpg" alt="Rebanadas Frutales">
+                        <img src="../common/images/Frutales_Gourmet_RebanadasFrutales-2048x2048.webp" alt="Rebanadas Frutales">
                         <h3>Rebanadas Frutales</h3>
-                        <p>Un toque gourmet con frutas seleccionadas, ideal para regalar a los más exigentes.</p>
+                        <p>Una bandeja variada de frutas cortadas en rodajas y rebanadas, ideal para comer en la mañana y compartir.</p>
                     </div>
                 </div>
             </section>
@@ -63,9 +64,17 @@
                 <figure> 
                     <img src="../common/images/fruits-heart-2048x2048.webp" alt="Corazón de Frutas" width="40%">
                     <figcaption>Figura: Corazón hecho de Frutas.</figcaption>
-                    <h2>Llega a sus corazónes,<br>contenta con Frutas sus almas.</h2>
+                    <h2 class="IntermidiateTitle">Llega a sus corazónes,<br>contenta con Frutas sus almas.</h2>
                 </figure> 
             </section>
+            <section id="audioPlayerSectionId">
+                <clark-codes-audio-player src="../common/audios/Love Thing.mp3" type="audio/mpeg" autoplay="true" song-name="Love Thing" artist-album="Joe Satriani - Crystal Planet" cover-img="../common/images/Satriani-BCN-2023-1.jpg" ></clark-codes-audio-player>
+            </section>
+            <h2 class="IntermidiateTitle">Así como nuestras Flores y Frutas...<br>¡Disfruta de una buena Música!</h2>
+            <section id="audioPlayerSectionId">
+                <clark-codes-audio-player src="../common/audios/Always With Me, Always With You.mp3" type="audio/mpeg" song-name="Always with me, always with you" artist-album="Joe Satriani - Surfing with the alien" cover-img="../common/images/Satriani-2-1140x500.jpg" ></clark-codes-audio-player>
+            </section>
+            <div class="Spacer"></div>
             <section class="RazonesEleccion">
                 <div>
                     <h2>Preguntas Frecuentes</h2>
@@ -106,5 +115,9 @@
             </section>
         </main>
         <iframe class="FooterIFrameClass" src="../common/footer.html" scrolling = "no" title="FooterFrame"></iframe>
+        <script type="module">
+            import {ClarkCodesAudioPlayer} from '../common/components/ClarkCodesAudioPlayer/ClarkCodesAudioPlayer.js';
+            window.customElements.define( 'clark-codes-audio-player', ClarkCodesAudioPlayer );
+         </script>
     </body>
 </html>
