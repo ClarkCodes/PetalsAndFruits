@@ -225,7 +225,7 @@ footer {
             display: flex;
             align-content: start;
             justify-content: center;
-            width: 390px;
+            width: 415px;
             padding-top: 0;
 
             @media( max-width: 1500px ) {
@@ -330,7 +330,7 @@ footer {
         }
 
         #copyrightRightDivId {
-            width: 390px;
+            width: 415px;
 
             @media( max-width: 1500px ) {
                 width: auto;
