@@ -1,4 +1,5 @@
 // Author: ClarkCodes - Web Component del Reproductor de Musica Personalizado ClarkCodesAudioPlayer - Componentizado por ClarkCodes el 6 de Enero del 2025, basado en ClarksAudioPlayer
+// Version: 1.0.0
 
 export class ClarkCodesAudioPlayer extends HTMLElement {
     constructor() {
@@ -24,13 +25,15 @@ export class ClarkCodesAudioPlayer extends HTMLElement {
                 songAudio.setAttribute( attr, this.getAttribute( attr ) );
             } 
         }); 
-
-        songTitle.innerHTML = this.getAttribute( 'song-name' ); // Setting Title, Artist and Album visually in the corresponding interface elements
-        songArtistAlbum.innerHTML = this.getAttribute( 'artist-album' );
+        
+        // Setting Title, Artist and Album visually in the corresponding interface elements
+        songTitle.innerHTML = this.hasAttribute( 'song-name' ) ? this.getAttribute( 'song-name' ) : 'Sin Nombre';
+        songArtistAlbum.innerHTML = this.hasAttribute( 'artist-album' ) ? this.getAttribute( 'artist-album' ) : 'Sin Artista - Sin Álbum';
 
         // Setting the Background Song Album Cover Image
+        this.coverImageToSet = this.hasAttribute( 'cover-img' ) ? this.getAttribute( 'cover-img' ) : '../common/images/Superman_ManOfSteel_Logo_OnBlack.jpg';
         const styleSheet = this.shadowRootDOM.querySelector( '#playerStyleSheetId' ).sheet; 
-        const fullRule = `.PlayerContainer::before { background-image: url( ${this.getAttribute( 'cover-img' )} ); }`; // Construct the full rule
+        const fullRule = `.PlayerContainer::before { background-image: url( ${this.coverImageToSet} ); }`; // Construct the full rule
         styleSheet.insertRule( fullRule, styleSheet.cssRules.length ); // Insert the rule into the stylesheet 
     } 
     
@@ -78,17 +81,17 @@ export class ClarkCodesAudioPlayer extends HTMLElement {
         const volumeValue = this.shadowRootDOM.querySelector( '#volumeValueId' );
         this.volumeValue = volumeValue;
 
-        const playIcon = '../../common/icons/play_arrow_24dp_E8EAED_FILL1_wght400_GRAD0_opsz24.svg';
+        const playIcon = '../common/icons/play_arrow_24dp_E8EAED_FILL1_wght400_GRAD0_opsz24.svg';
         this.playIcon = playIcon;
-        const pauseIcon = '../../common/icons/pause_24dp_E8EAED_FILL1_wght400_GRAD0_opsz24.svg';
+        const pauseIcon = '../common/icons/pause_24dp_E8EAED_FILL1_wght400_GRAD0_opsz24.svg';
         this.pauseIcon = pauseIcon;
-        const replayIcon = '../../common/icons/replay_24dp_E8EAED_FILL1_wght400_GRAD0_opsz24.svg';
+        const replayIcon = '../common/icons/replay_24dp_E8EAED_FILL1_wght400_GRAD0_opsz24.svg';
         this.replayIcon = replayIcon;
-        const highVolumeIcon = '../../common/icons/volume_up_24dp_E8EAED_FILL1_wght400_GRAD0_opsz24.svg';
+        const highVolumeIcon = '../common/icons/volume_up_24dp_E8EAED_FILL1_wght400_GRAD0_opsz24.svg';
         this.highVolumeIcon = highVolumeIcon;
-        const lowVolumeIcon = '../../common/icons/volume_down_alt_24dp_E8EAED_FILL1_wght400_GRAD0_opsz24.svg';
+        const lowVolumeIcon = '../common/icons/volume_down_alt_24dp_E8EAED_FILL1_wght400_GRAD0_opsz24.svg';
         this.lowVolumeIcon = lowVolumeIcon;
-        const mutedIcon = '../../common/icons/no_sound_24dp_E8EAED_FILL1_wght400_GRAD0_opsz24.svg';
+        const mutedIcon = '../common/icons/no_sound_24dp_E8EAED_FILL1_wght400_GRAD0_opsz24.svg';
         this.mutedIcon = mutedIcon;
 
 
@@ -117,9 +120,9 @@ export class ClarkCodesAudioPlayer extends HTMLElement {
 <div class="PlayerContainer">
     <div class="ClarkCodesLogoClass">
         <button id="clarkCodesLogoImagotypeButtonId">
-            <img id="clarkCodesLogoImagotypeId" src="../../common/images/ClarkCodes Logo OnTransparent_100x100px_300ppi.webp" width="30px" alt="ClarkCodes Logo Imgotipo">
+            <img id="clarkCodesLogoImagotypeId" src="../common/images/ClarkCodes Logo OnTransparent_100x100px_300ppi.webp" width="30px" alt="ClarkCodes Logo Imgotipo">
         </button>
-        <img id="clarkCodesLogoTextId" src="../../common/images/ClarkCodes only Text OnTransparent.webp" width="30px" alt="ClarkCodes Logo Text">
+        <img id="clarkCodesLogoTextId" src="../common/images/ClarkCodes only Text OnTransparent.webp" width="30px" alt="ClarkCodes Logo Text">
     </div>
     <div class="BasicInfoClass">
         <h2 id="titleId"></h2>
@@ -136,16 +139,16 @@ export class ClarkCodesAudioPlayer extends HTMLElement {
         <div id="controlsLeftSpacer"></div>
         <div class="MainControlsClass">
             <button id="playPauseReplayButtonId">
-                <img src="../../common/icons/play_arrow_24dp_E8EAED_FILL1_wght400_GRAD0_opsz24.svg" alt="Play and Pause Icon">
+                <img src="../common/icons/play_arrow_24dp_E8EAED_FILL1_wght400_GRAD0_opsz24.svg" alt="Play and Pause Icon">
             </button>
             <button id="stopButtonId">
-                <img src="../../common/icons/stop_24dp_E8EAED_FILL1_wght400_GRAD0_opsz24.svg" alt="Stop Icon">
+                <img src="../common/icons/stop_24dp_E8EAED_FILL1_wght400_GRAD0_opsz24.svg" alt="Stop Icon">
             </button>
         </div>
         <div class="RightSideControlsClass">
             <div class="VolumeControlClass">
                 <button id="volumeButtonId">
-                    <img src="../../common/icons/volume_down_alt_24dp_E8EAED_FILL1_wght400_GRAD0_opsz24.svg" alt="Volume Icon">
+                    <img src="../common/icons/volume_down_alt_24dp_E8EAED_FILL1_wght400_GRAD0_opsz24.svg" alt="Volume Icon">
                 </button>
                 <div class="VolumeSliderClass">
                     <input type="range" id="volumeSliderId" min="0" max="100" value="50">
@@ -168,6 +171,12 @@ export class ClarkCodesAudioPlayer extends HTMLElement {
         return `
             <style id="playerStyleSheetId">
                 /* Estilos del Reproductor de Musica Personalizado - Desarrollado por ClarkCodes entre el 1 y el 5 de Noviembre del 2024, se termino de refinar a las 16:35 */
+:host { /* Colores usados multiples veces */
+    --secondary-accent-color-darkest : #F1E37D;
+}
+
+
+/* Estilos Generales */
 
 * { 
     font-size: 11pt;
@@ -188,6 +197,9 @@ h2 {
 h3 {
     font-size: 12pt;
 }
+
+
+/* Estilos de Clases y Elementos */
 
 .PlayerContainer::before {
     position: absolute;
