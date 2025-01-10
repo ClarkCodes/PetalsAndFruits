@@ -29,13 +29,15 @@
     /* Accent Colors */
 
     --primary-accent-color-darkest : #ff4c3c;
-    --primary-accent-color-darkest-30 : rgba( 255, 76, 60, .7 );
+    --primary-accent-color-darkest-70 : rgba( 255, 76, 60, .7 );
+    --primary-accent-color-darkest-30 : rgba( 255, 76, 60, .3 );
     --primary-accent-color-darkmid : #ff6f61;
+    --primary-accent-color-darkmid-35 : rgba( 255, 111, 97, .35 );
     --primary-accent-color-darksoft : #ffa07a;
     --primary-accent-color-light : orange;
     --primary-accent-color-lesslight : darkorange;
     --primary-accent-color-lightless : orangered;
-    --secondary-accent-color-darkest-75 : rgb( 241, 227, 125, .75 );
+    --secondary-accent-color-darkest-75 : rgba( 241, 227, 125, .75 );
     --secondary-accent-color-darkest : #F1E37D;
     --secondary-accent-color-darkmid : #FAF5D0;
     --thirdy-accent-color-darkest : #151C65;
@@ -44,9 +46,11 @@
     /* State Colors */
 
     --success-color : #00b85f;
-    --success-color-on-dark-mode : #00E676;
+    --success-color-30 : rgba( 0, 184, 95, .3 );
+    --success-color-light : #00E676;
+    --success-color-light-30 : rgba( 0, 230, 118, .3 );
     --error-color : #B00020;
-    --error-color-on-dark-mode : #af8d93;
+    --error-color-light : #af8d93;
     
     /* SVG Filter Colors */
 
