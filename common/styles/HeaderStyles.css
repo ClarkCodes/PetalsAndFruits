@@ -12,7 +12,8 @@
 
 header {
     height: 70px;
-    background: var( --primary-accent-color-darkest-30 );
+    background: var( --primary-accent-color-darkest-70 );
+    backdrop-filter: blur( 10px );
     color: white;
     padding: 0;
     gap: 50px;
@@ -69,7 +70,6 @@ header {
     a img {
         cursor: pointer;
         opacity: .85;
-        filter: drop-shadow( 0px 0px 25px var( --kv-secondary-accent-color-darkest ) );
     }
 }
 

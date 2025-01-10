@@ -14,7 +14,8 @@
         margin-top: 705px;
         color: var( --primary-accent-color-darkest );
         line-height: 80pt;
-        background-color: white;
+        background-color: var( --foreground-white-color-51 );
+        backdrop-filter: blur( 10px );
         border-radius: 20px;
         height: fit-content;
         padding-inline: 50px;

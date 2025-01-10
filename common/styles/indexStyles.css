@@ -83,12 +83,24 @@
     }
 
     button {
+        background: var( --primary-accent-color-darkmid-35 );
+        backdrop-filter: blur( 10px );
         margin-top: 750px;
         margin-left: 90px;
         font-size: 22pt;
         height: 90px;
         width: 430px;
         font-weight: bold;
+
+        &:hover {
+            background-color: var( --primary-accent-color-darkest-30 );
+            transition: background-color .25s ease-in;
+        }
+    
+        &:active {
+            background-color: var( --success-color-light-30 );
+            transition: background-color .1s ease-in;
+        }
     }
 }
 

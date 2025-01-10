@@ -8,7 +8,7 @@
     h1 {
         margin-left: 3%;
         line-height: 59pt;
-        font-size: 80pt;
+        font-size: 120pt;
     }
 
     #QuienesSomosId {
@@ -16,8 +16,7 @@
         color: var( --foreground-white-color-81 );
     }
 
-    #ConocenosId {
-        /*margin-top: 490px;*/
+    #ConocenosId {  
         color: white;
         text-shadow: 1px 1px 10px var( --foreground-gray-5-color );
     }
@@ -113,5 +112,3 @@ section {
     border-bottom: var( --blocks-border );
     margin-inline: -4.3%;
 }
-
-
