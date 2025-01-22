@@ -72,6 +72,11 @@ form {
     }
 
     input[type="submit"] {
+        background: url( "../icons/send_24dp_E8EAED_FILL1_wght400_GRAD0_opsz24.svg" ) no-repeat;
+        background-position-x: 21.4vw;
+        background-position-y: center;
+        background-size: 30px;
+        font-size: larger;
         border: none;
         width: 98%;
         padding: 10px 30px;
@@ -80,5 +85,37 @@ form {
         border-radius: 5px;
         text-transform: uppercase;
         cursor: pointer;
+
+        @media( max-width: 1840px ) {
+            background-position-x: 20.5vw;
+        }
+    
+        @media( max-width: 1640px ) {
+            background-position-x: 19.5vw;
+        }
+
+        @media( max-width: 1440px ) {
+            background-position-x: 18.5vw;
+        }
+
+        @media( max-width: 1240px ) {
+            background-position-x: 17.5vw;
+        }
+
+        @media( max-width: 1040px ) {
+            background-position-x: 16.5vw;
+        }
+
+        @media( max-width: 840px ) {
+            background-position-x: 15.5vw;
+        }
+
+        @media( max-width: 640px ) {
+            background-position-x: 12.5vw;
+        }
+
+        @media( max-width: 540px ) {
+            background-position-x: 8.5vw;
+        }
     }
 }

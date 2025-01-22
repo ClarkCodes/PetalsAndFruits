@@ -1,4 +1,14 @@
+/* Imports */
 @import url( "BaseCommonStyles.css" );
+
+/* Variables/Constants */
+:root 
+{ 
+    /* Numeric and Measure Constants/Variables */
+    --active-menu-top-bottom-border: 2px solid var( --secondary-accent-color-darkest );
+    --active-menu-border-radius: 4px;
+    --active-menu-text-shadow: 1px 1px 15px var( --secondary-accent-color-darkest );
+}
 
 * { 
     font-size: 13pt;

@@ -1,15 +1,49 @@
+/* Imports */
 @import url( "BaseCommonStyles.css" );
+
+/* Variables/Constants */
+:root 
+{ 
+    /* Measures */
+    --footer-main-divs-top-padding: 17px; 
+    
+    /* SVG Filter Colors */
+    --svg-filter: brightness(0) saturate(100%) invert(36%) sepia(98%) saturate(1639%) hue-rotate(338deg) brightness(101%) contrast(101%);
+    --svg-filter-on-dark-theme: brightness(0) saturate(100%) invert(89%) sepia(23%) saturate(780%) hue-rotate(3deg) brightness(100%) contrast(94%);
+}
 
 /* Footer Section */
 
 footer {
+    position: relative;
+    z-index: 1;
     width: 100%;
-    height: 330px;
+    height: var( --footer-height );
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
-    align-items: center;
-    background-color: rgba( 255, 160, 122, .35 );
+    align-items: top;
+
+    &::before, &::after {
+        content: "";
+        position: absolute;
+        top: 0; 
+        left: 0;
+        width: 100%; 
+        height: 100%;
+    }
+
+    &::before {
+        background: url( "../images/apple_1920.png" ) no-repeat center center;
+        background-size: cover;
+        z-index: -2;
+    }
+
+    &::after {
+        background-color: rgba( 255, 160, 122, .45 );
+        backdrop-filter: blur( 25px );
+        z-index: -1;
+    }
 
     #addressIconId {
         filter: var( --svg-filter );
@@ -26,6 +60,24 @@ footer {
             transition: color .1s ease, text-shadow .11s ease;
             color: var( --thirdy-accent-color-darkest );
             text-shadow: 3px 3px 20px var( --secondary-accent-color-darkest );
+        }
+    }
+
+    #socialLinksNavId, #pixabayLinkDivId {
+        a {
+            img {
+                opacity: 0.8;
+                transition: scale .1s ease, opacity .1s ease, filter .2s ease-out;
+            }
+
+            &:hover {                 
+                img {
+                    transition: scale .3s ease, opacity .3s ease, filter .3s ease-in;
+                    opacity: 1;
+                    scale: 1.5;
+                    filter: drop-shadow( 0px 0px 10px var( --secondary-accent-color-darkest ) );
+                }
+            }
         }
     }
 
@@ -75,158 +127,50 @@ footer {
         }
     }
 
-    #footerMainSectionDivId {
-        margin-top: 0%;
+    #mainDivLeftId {
+        width: 33%;
+        height: 100%;
+        padding-top: var( --footer-main-divs-top-padding );
+        padding-right: 0;
         display: flex;
-        flex-direction: row;
-        justify-content: left;
-        width: 100%;
-
-        div {
-            flex-direction: column;
-        }
-
-        @media( max-width: 1500px ) {
-            width: 95%;
-            flex-flow: column;
-            justify-content: center;
-            padding-top: 0;
-            height: fit-content;
-        }
+        flex-direction: column;
+        justify-content: center;
 
         #footerLogoDivId {
             margin-inline: 0;
             display: flex;
-            flex-direction: row;
-            justify-content: right;
+            flex-direction: column;
+            justify-content: center;
             align-items: center;
-            width: 32.3%;
+            width: 100%;
 
             @media (min-width: 493px) and (max-width: 1500px) {
                 margin-top: 20px;
                 width: 100%;
                 justify-content: center;
-            }        
-        }
-
-        #contactenosAddressDivId {
-            width: fit-content;
-            display: flex;
-            flex-direction: column;
-            margin-left: 0;
-            padding-top: 0;
-            padding-left: 0;
-
-            div { 
-                display: flex;
-                flex-direction: row;
-                margin-inline: 0;
-                padding-top: 0;
-                padding-inline: 0;
             }
 
-            img {
-                margin-inline: 0;
-            }
-
-            address {
-                padding-left: 10px;
-            }
-        }
-
-        #socialsAndFreepikDivId {
-            width: fit-content;
-            
-            @media( max-width: 1500px ) {
-                width: 97%;
-
-                div {
+            #socialLinksNavId {
+                width: 350px;
+                
+                ul {
                     width: 100%;
-                    margin-inline: 0;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-evenly;
+                    list-style: none;
+                    padding-top: 2vh;
                     padding-inline: 0;
                 }
             }
-
-            #socialsLinksDivId {
-                padding-top: 0;
-                width: 100%;
-                
-                @media( max-width: 1500px ) {
-                    width: 100%;
-                }
-
-                #socialLinksNavId {
-                    width: 100%;
-                    
-                    ul {
-                        width: 100%;
-                        display: flex;
-                        flex-direction: row;
-                        justify-content: space-evenly;
-                        list-style: none;
-                        padding-top: 2vh;
-                        padding-inline: 0;
-                    }
-                }
-            }
-                
-            #freepikDivId {
-                padding-top: 0;
-                width: 100%;
-                display: flex;
-                justify-content: center;
-
-                #freepikLinkDivId {
-                    display: flex;
-                    flex-direction: row;
-                    justify-content: center;
-                }
-            }
-        }
-    }
-
-    #socialLinksNavId, #freepikLinkDivId {
-        a {
-            img {
-                opacity: 0.8;
-                transition: scale .1s ease, opacity .1s ease, filter .2s ease-out;
-            }
-
-            &:hover {                 
-                img {
-                    transition: scale .3s ease, opacity .3s ease, filter .3s ease-in;
-                    opacity: 1;
-                    scale: 1.2;
-                    filter: drop-shadow( 0px 0px 10px var( --secondary-accent-color-darkest ) );
-                }
-            }
-        }
-    }
-
-    #copyrightSectionDivId {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        padding: 10px 0;
-        width: 97.5%;
-
-        @media( max-width: 1500px ) {
-            width: 95%;
-            flex-flow: column;
-            justify-content: center;
         }
 
-        div {
-            margin-left: 0;
-        }
-
-        #copyrightLeftDivId {
+        #csLogoDivId {
             display: flex;
-            align-content: start;
+            align-content: center;
             justify-content: center;
-            width: 415px;
-            padding-top: 0;
+            width: 100%;
+            padding-top: 20px;
 
             @media( max-width: 1500px ) {
                 width: auto;
@@ -236,104 +180,195 @@ footer {
             }
 
             #CSLogoImgId {
-                margin-left: 0vw;
+                margin-inline: 0;
                 margin-top: 0vh;
                 height: 55px;
+                filter: var( --svg-filter ) drop-shadow( 1px 1px 12px var( --foreground-white-color-81 ) );
             }
         }
+    }
 
-        #copyrightCenterDivId {
-            padding-top: 0;
+    #mainDivRightId {
+        width: 67%;
+        padding-top: var( --footer-main-divs-top-padding );
+        padding-left: 0;
+
+        #footerMainSectionDivId {
+            margin-top: 0%;
             padding-inline: 0;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-
+            flex-direction: row;
+            justify-content: left;
+            width: 100%;
+    
+            div {
+                flex-direction: column;
+            }
+    
             @media( max-width: 1500px ) {
-                width: 100%;
-                margin-inline: 0;
-                padding-inline: 0;
-            }
-
-            #copyrightCenterMainDivId {
-                display: flex;
-                flex-direction: row;
+                width: 95%;
+                flex-flow: column;
                 justify-content: center;
-                margin-inline: 0;
                 padding-top: 0;
-
-                #UGLogoDivId {
-                    width: fit-content;
+                height: fit-content;
+            }
+    
+            
+            #contactenosAddressDivId {
+                width: fit-content;
+                display: flex;
+                flex-direction: column;
+                margin-left: 0;
+                padding-top: 0;
+                padding-left: 0;
+    
+                div { 
                     display: flex;
-                    align-items: center;
+                    flex-direction: row;
                     margin-inline: 0;
+                    padding-top: 0;
                     padding-inline: 0;
-    
-                    #UGLogoImgId {
-                        
-                        margin-top: 0vh;
-                        height: 50px;
-                        align-self: center;
-                    }
                 }
     
-                #UniFaTextDivId {
-                    display: flex;
-                    flex-direction: column;
-                    width: fit-content;
-                    height: fit-content;
+                img {
                     margin-inline: 0;
-                    padding-inline: 2vw;
-                    line-height: 24pt;
-
-                    strong {
-                        font-size: 11pt;
-                        text-align: center;
-                        justify-content: center;
-                        color: var( --thirdy-accent-color-darkest );
-                    }
                 }
     
-                #FacultadLogoDivId {
-                    width: 87.5px;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    margin-inline: 0;
-                    
-                    #FCMFLogoImgId {
-                        margin-left: 0vw;
-                        margin-top: 0vh;
-                        height: 65px;
-                    }
+                address {
+                    padding-left: 10px;
                 }
             }
-
-            #copyrightLegendDivId {
-                height: 30px;
-                width: 100%;
-                padding-top: 8px;
-                display: flex;
-                justify-content: center;
-                margin-inline: 0;
+    
+            #externalResourcesDivId {
+                width: 345px;
                 
                 @media( max-width: 1500px ) {
-                    width: 75%;
+                    width: 97%;
+    
+                    div {
+                        width: 100%;
+                        margin-inline: 0;
+                        padding-inline: 0;
+                    }
                 }
-
-                h7 {
-                    font-size: 8pt;
-                    color: var( --foreground-black-color-61 );
+    
+                #graphicalResourcesDivId {
+                    padding-top: 0;
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+    
+                    #pixabayLinkDivId {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: center;
+                    }
                 }
             }
         }
-
-        #copyrightRightDivId {
-            width: 415px;
-
+    
+        #copyrightSectionDivId {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: left;
+            padding: 10px 0;
+            width: 97.5%;
+    
             @media( max-width: 1500px ) {
-                width: auto;
+                width: 95%;
+                flex-flow: column;
+                justify-content: center;
+            }
+    
+            div {
+                margin-left: 0;
+            }      
+    
+            #copyrightCenterDivId {
+                padding-top: 0;
+                padding-inline: 0;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+    
+                @media( max-width: 1500px ) {
+                    width: 100%;
+                    margin-inline: 0;
+                    padding-inline: 0;
+                }
+    
+                #copyrightCenterMainDivId {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    margin-inline: 0;
+                    padding-top: 0;
+    
+                    #UGLogoDivId {
+                        width: fit-content;
+                        display: flex;
+                        align-items: center;
+                        margin-inline: 0;
+                        padding-inline: 0;
+        
+                        #UGLogoImgId {
+                            margin-top: 0vh;
+                            height: 50px;
+                            align-self: center;
+                        }
+                    }
+        
+                    #UniFaTextDivId {
+                        display: flex;
+                        flex-direction: column;
+                        width: fit-content;
+                        height: fit-content;
+                        margin-inline: 0;
+                        padding-inline: 2vw;
+                        line-height: 24pt;
+    
+                        strong {
+                            font-size: 11pt;
+                            text-align: center;
+                            justify-content: center;
+                            color: var( --thirdy-accent-color-darkest );
+                        }
+                    }
+        
+                    #FacultadLogoDivId {
+                        width: 87.5px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        margin-inline: 0;
+                        
+                        #FCMFLogoImgId {
+                            margin-left: 0vw;
+                            margin-top: 0vh;
+                            height: 65px;
+                        }
+                    }
+                }
+    
+                #copyrightLegendDivId {
+                    height: 30px;
+                    width: 100%;
+                    padding-top: 8px;
+                    display: flex;
+                    justify-content: center;
+                    margin-inline: 0;
+                    
+                    @media( max-width: 1500px ) {
+                        width: 75%;
+                    }
+    
+                    h7 {
+                        font-size: 8pt;
+                        color: var( --foreground-black-color-61 );
+                    }
+                }
             }
         }
     }
