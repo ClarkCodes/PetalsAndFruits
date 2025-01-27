@@ -50,6 +50,8 @@
     --success-color-light-30 : rgba( 0, 230, 118, .3 );
     --error-color : #B00020;
     --error-color-light : #af8d93;
+    --disabled-background-color : grey;
+    --disabled-color : lightgray;
     
     /* Numeric and Measure Constants/Variables */
 
