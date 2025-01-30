@@ -4,47 +4,84 @@
 .ContentClass {
     display: flex;
     flex-direction: row;
+    
+    @media( max-width: 840px ) {
+        flex-direction: column;
+    }
 }
 
 .ContactenosClass {
     width: 100%;
+    padding-right: 20px;
+
+    p {
+        width: 98%;
+    }
 }
 
 .ResultadoClass {
+    visibility: hidden;
     margin-inline: auto;
     width: 80%;
+    padding-right: 40px;
+
+    p {
+        padding-bottom: 30px;
+    }
 }
 
 form {
     input[type="text"], input[type="email"], input[type="tel"]  {
         width: 98%;
-        padding: 8px;
+        padding: 8px 1vw;
         margin-top: 1vh;
         margin-bottom: 3vh;
-        padding-inline: 1vw;
         border-radius: 4px; 
         box-sizing: border-box;
+    }
+
+    .ErrorTooltipClass {
+        display: none;
+        flex-direction: row;
+        align-items: center;
+        padding-bottom: 40px;
+
+        img {
+            height: 24px;
+            padding-inline: 15px;
+        }
+    }    
+
+    .ErrorTooltipClass, .ErrorTooltipClass>span {
+        font-size: 10pt;
+        font-weight: bold;
+        color: red;
+    }
+
+    #acceptanceTooltipId {
+        padding-top: 30px;
     }
 
     .PhoneAndMailClass {
         display: flex;
         flex-direction: row;
-        width: 100%;
+        width: 99%;
         
         #phoneDivId {
-            width: 42%;
+            width: 100%;
         }
 
         #mailDivId {
-            width: 58%;
+            width: 100%;
         }
 
         div {
-            margin-left: -.05vw;
+            margin-inline: 0;
+            padding-inline: 0;
+        }
 
-            input[type="email"], input[type="tel"]  {
-                margin-inline: 0%;
-            }
+        @media( max-width: 840px ) {
+            flex-direction: column;
         }
     }
 
@@ -73,7 +110,7 @@ form {
 
     input[type="submit"] {
         background: url( "../icons/send_24dp_E8EAED_FILL1_wght400_GRAD0_opsz24.svg" ) no-repeat;
-        background-position-x: 21.4vw;
+        background-position-x: 20.7vw;
         background-position-y: center;
         background-size: 30px;
         font-size: larger;
@@ -86,8 +123,20 @@ form {
         text-transform: uppercase;
         cursor: pointer;
 
+        &:disabled {
+            background-color: var( --disabled-background-color );
+            color: var( --disabled-color );
+            cursor: not-allowed;
+            border: none;
+            
+            &:hover, &:active{
+                background-color: var( --disabled-background-color );
+                color: var( --disabled-color );
+            }
+        }
+
         @media( max-width: 1840px ) {
-            background-position-x: 20.5vw;
+            background-position-x: 20vw;
         }
     
         @media( max-width: 1640px ) {
@@ -103,19 +152,23 @@ form {
         }
 
         @media( max-width: 1040px ) {
-            background-position-x: 16.5vw;
+            background-position-x: 15vw;
         }
 
         @media( max-width: 840px ) {
-            background-position-x: 15.5vw;
+            background-position-x: 32vw;
+        }
+
+        @media( max-width: 750px ) {
+            background-position-x: 31vw;
         }
 
         @media( max-width: 640px ) {
-            background-position-x: 12.5vw;
+            background-position-x: 28vw;
         }
 
         @media( max-width: 540px ) {
-            background-position-x: 8.5vw;
+            background-position-x: 25vw;
         }
     }
 }

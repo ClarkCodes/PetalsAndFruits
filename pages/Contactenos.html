@@ -6,6 +6,7 @@
         <link rel = "stylesheet" type="text/css" href="../common/styles/ContactenosStyles.css" />
         <link rel="icon" type="image/x-icon" href="../common/icons/Petals&Fruits_FAVICON.ico" />
         <script src="../common/scripts/Management.js"></script>
+        
         <title>Petals&Fruits - Contáctenos</title>
     </head>
     <body>
@@ -28,23 +29,28 @@
                         <form name="contactenosForm" method="post">
                             <label for="txtNamesId" >Nombres *</label><br>
                             <input type="text" id="txtNamesId" name="names" placeholder="Escriba sus dos nombres..." ><br>
+                            <span class="ErrorTooltipClass" id="namesTooltipId"><img src="../common/icons/error-icon.png"/>Se requiere que llene el campo con sus Nombres</span>
 
                             <label for="txtLastNamesId" >Apellidos *</label><br>
                             <input type="text" id="txtLastNamesId" name="lastNames" placeholder="Escriba sus dos apellidos..." ><br>
+                            <span class="ErrorTooltipClass" id="lastNamesTooltipId"><img src="../common/icons/error-icon.png"/>Se requiere que llene el campo con sus Apellidos</span>
 
                             <div class="PhoneAndMailClass">
                                 <div id="phoneDivId">
                                     <label for="txtPhoneId" id="lblPhoneId">Teléfono *</label><br>
                                     <input type="tel" pattern="[0-9]*" id="txtPhoneId" name="phone" placeholder="Escriba su número de teléfono..." >
+                                    <span class="ErrorTooltipClass" id="phoneTooltipId"><img src="../common/icons/error-icon.png"/><span id="phoneTooltipMsgId"></span></span>
                                 </div>
                                 <div id="mailDivId">
                                     <label for="txtEmailId" >Correo Electrónico *</label><br>
                                     <input type="email" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" id="txtEmailId" name="email" placeholder="Escriba su correo electrónico..." ><br>
+                                    <span class="ErrorTooltipClass" id="emailTooltipId"><img src="../common/icons/error-icon.png"/><span id="emailTooltipMsgId"></span></span>
                                 </div>
                             </div>
 
                             <label for="txtMotivoId" >Motivo *</label><br>
                             <input type="text" id="txtMotivoId" name="consultingSubject" placeholder="Describa brevemente el motivo por el cual nos contacta..." ><br>
+                            <span class="ErrorTooltipClass" id="motivoTooltipId"><img src="../common/icons/error-icon.png"/>Se requiere que llene el campo con el motivo del contacto</span>
                         
                             <label for="cmbCitiesId">Ciudad *</label><br>
                             <select id="cmbCitiesId" name="city">
@@ -58,6 +64,7 @@
                                 <input type="checkbox" id="chkAcceptanceId" name="acceptance" required >    
                                 Al aceptar, estás de acuerdo con nuestra Politica de Protección de Datos Personales.
                             </label><br>
+                            <span class="ErrorTooltipClass" id="acceptanceTooltipId"><img src="../common/icons/error-icon.png"/>Se requiere que acepte la Politica de Protección de Datos para continuar</span>
 
                             <input type="submit" value="Enviar" id="submitButtonId" >
                         </form>
@@ -65,10 +72,19 @@
 
                 </div>
                 <div class="ResultadoClass">
-                    
+                    <h2 class="SuccessfulConfirmationTitle">DATOS ENVIADOS</h2>
+                    <p>Estimado Cliente, muchas gracias por enviarnos su solicitud, nos contactarémos con usted a la brevedad posible. Estos son los datos enviados.</p>
+                    <p><b>Nombres:</b> <span id="sentNamesId"></span></p>
+                    <p><b>Apellidos:</b> <span id="sentLastNamesId"></span></p>
+                    <p><b>Teléfono:</b> <span id="sentPhoneId"></span></p>
+                    <p><b>Correo Electrónico:</b> <span id="sentEmailId"></span></p>
+                    <p><b>Motivo de la Consulta:</b> <span id="sentMotivoId"></span></p>
+                    <p><b>Ciudad:</b> <span id="sentCiudadId"></span></p>
+                    <p><b>Número de Solicitud:</b> <span id="numeroSolicitudId"></span></p><br><br>
                 </div>
             </div>
         </main>
         <iframe class="FooterIFrameClass" src="../common/footer.html" scrolling = "no" title="FooterFrame"></iframe>
+        <script src="../common/scripts/ValidacionFormulario.js"></script>
     </body>
 </html>

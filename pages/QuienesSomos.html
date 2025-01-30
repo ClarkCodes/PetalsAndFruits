@@ -10,12 +10,35 @@
         <link rel="icon" type="image/x-icon" href="../common/icons/Petals&Fruits_FAVICON.ico" />
         <script src="../common/scripts/Management.js"></script>
         <title>Petals&Fruits - Quiénes Somos</title>
+        <script>
+            // Cambia el color del título principal al pasar el mouse
+            function cambiarColorTitulo( elemento ) {
+                elemento.style.color = "lightyellow";
+                elemento.style.border = "2px solid lightgreen";
+            }
+            function restaurarColorTitulo( elemento ) {
+                elemento.style.color = ""; // Restaura el color original
+                elemento.style.border = "";
+            }
+
+            // Muestra un mensaje emergente al hacer clic en un logro
+            function mostrarMensajeLogro( mensaje ) {
+                alert( mensaje );
+            }
+
+            // Cambia el contenido de un párrafo al hacer doble clic
+            function cambiarContenidoParrafo( elemento ) {
+                elemento.innerText = "¡Gracias por visitarnos! Estamos felices de compartir nuestra historia contigo.";
+            }
+        </script>
     </head>
     <body>
         <iframe class="HeaderIFrameClass" src="../common/header.html" scrolling = "no" title="HeaderFrame"></iframe>
         <div id="pageMainImageDivId">
-            <h1 id="QuienesSomosId">Quienes Somos...</h1>
-            <h1 id="ConocenosId"><br>¡Conócenos!</h1>
+            <h1 id="QuienesSomosId" onmouseover="cambiarColorTitulo( this )" onmouseout="restaurarColorTitulo( this )">
+                Quienes Somos...
+            </h1>
+            <h1 id="ConocenosId" onmouseover="cambiarColorTitulo( this )" onmouseout="restaurarColorTitulo( this )"><br>¡Conócenos!</h1>
         </div>
         <!-- Sección Principal -->
         <main>
@@ -23,7 +46,7 @@
                 <div class="BiSectionContentDiv">
                     <di class="BiSectionTextDiv">
                         <h2>Somos la Tienda #1 de Arreglos<br>Florales y Frutales en la región</h2>
-                        <p>
+                        <p ondblclick="cambiarContenidoParrafo( this )">
                             Del campo a tus manos, traemos los productos que más te gustan para ti, flores de altísima calidad, 
                             cuidadas con una dedicación suprema, frutos cultivados por nosotros, orgánicos y sanos. 
                             <br><br>
@@ -43,19 +66,19 @@
             <section id="logrosSectionId">
                 <h2>Somos los mejores en nuestro ámbito</h2>
                 <div id="logrosContainerId">
-                    <div class="Logro">
+                    <div class="Logro" onclick="mostrarMensajeLogro( 'Ganador del Primer Lugar a la Excelencia en Calidad' )">
                         <img id="firstPlaceIconImgId" src="../common/images/first-place-2048x2048.webp" alt="Ganador Primer Lugar Excelencia en Calidad">
                         <h3>5 Veces Ganador del<br>Primer Lugar a la Excelencia en Calidad de Productos y Servicios</h3>
                     </div>
-                    <div class="Logro">
+                    <div class="Logro" onclick="mostrarMensajeLogro( 'Acreditación ISO: Máxima Calidad en Procesos de Producción' )">
                         <img src="../common/images/iso27001-2048x2048.webp" alt="Acreditación ISO 27001">
                         <h3>Acreditación ISO<br>Máxima Calidad en Procesos de Producción</h3>
                     </div>
-                    <div class="Logro">
+                    <div class="Logro" onclick="mostrarMensajeLogro( 'Máxima frescura garantizada en nuestros productos' )">
                         <img src="../common/images/100FrescoNatural-2048x2048.webp" alt="100% Fresco">
                         <h3>Máxima Frescura en nuestros Productos</h3>
                     </div>
-                    <div class="Logro">
+                    <div class="Logro" onclick="mostrarMensajeLogro( 'Garantía de Productos 100% Orgánicos' )">
                         <img src="../common/images/100Organico-2048x2048.webp" alt="100% Orgánico">
                         <h3>Productos cultivados y cosechados sin fertilizantes ni químicos</h3>
                     </div>
@@ -66,7 +89,7 @@
                     <di id="biSectionImageDivId2"></di>
                     <di class="BiSectionTextDiv">
                         <h2>Desde nuestros inicios<br>Dedicados a Nuestros Clientes</h2>
-                        <p>
+                        <p ondblclick="cambiarContenidoParrafo( this )">
                             Empezamos como un emprendimiento familiar, un negocio pequeño pero con muchas ganas de trabajar y salir adelante, 
                             así fue que poco a poco y con mucho esfuerzo, se ha transformado en la empresa que es hoy en día.
                             <br><br>

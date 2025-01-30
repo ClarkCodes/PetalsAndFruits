@@ -13,6 +13,7 @@
         color: var( --primary-accent-color-darkest );
         line-height: 175pt;
         height: fit-content;
+        text-shadow: 2px 2px 15px gray;
     }
 }
 
@@ -40,6 +41,8 @@ section {
 
         li {
             list-style: none;
+            border-radius: 50px;
+            transition: background .2s ease, backdrop-filter .2s ease;
 
             a {
                 text-decoration: none;
@@ -47,13 +50,12 @@ section {
                 font-family: Poppins;
                 font-size: 17pt;
                 font-weight: bold;
-                transition: color .1s ease;
+                padding-inline: 27px;
+            }
 
-                &:hover {
-                    color: var( --primary-accent-color-darkest );
-                    text-shadow: 0px 0px 20px var( --secondary-accent-color-darkest );
-                    transition: color .25s ease, text-shadow .25s ease;
-                }
+            &:hover {
+                background-color: rgb( 252, 228, 183 );
+                transition: background-color .2s ease, backdrop-filter .2s ease;
             }
         }
     }    

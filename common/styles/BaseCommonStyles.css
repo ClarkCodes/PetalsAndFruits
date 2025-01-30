@@ -50,10 +50,10 @@
     --success-color-light-30 : rgba( 0, 230, 118, .3 );
     --error-color : #B00020;
     --error-color-light : #af8d93;
+    --disabled-background-color : grey;
+    --disabled-color : lightgray;
     
     /* Numeric and Measure Constants/Variables */
-
-    /* --MAX-WIDTH-FOOTER-: 1693px; TODO: PENDIENTE DE PONER LAS CONSTANTES NUMERICAS */
 
     --blocks-border: 2px solid var( --primary-accent-color-darkmid ); 
     --border-white-d-color: #ddd;
@@ -261,12 +261,24 @@ button {
             box-shadow: 0 0 7px rgba( 0, 0, 0, .3 );
             border-radius: 10px;
             text-align: center;
+            border: 3px solid transparent;
+            transition: border .15s ease-out;
+
+            &:hover {
+                transition: border .2s ease;
+            }
         
             img {
                 width: 100%;
                 height: auto;
                 margin-bottom: 1rem;
                 border-radius: 8px;
+                border: 2px solid transparent;
+                transition: border .15s ease-out;
+
+                &:hover {
+                    transition: border .2s ease;
+                }
             }
             
             h3 {
