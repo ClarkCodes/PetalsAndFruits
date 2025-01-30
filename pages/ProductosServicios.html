@@ -8,6 +8,35 @@
         <link rel="icon" type="image/x-icon" href="../common/icons/Petals&Fruits_FAVICON.ico" />
         <script src="../common/scripts/Management.js"></script>
         <title>Petals&Fruits - Productos y Servicios</title>
+        <script>
+            // Evento para mostrar un mensaje de bienvenida cuando se haga clic en los botones
+            function handleMessageClick() {
+                alert("¡Gracias por explorar los productos de Petals&Fruits!");
+            }
+
+            // Evento cuando la página se carga completamente
+            window.onload = function() {
+                console.log("Bienvenido a la tienda Petals&Fruits. ¡Estamos felices de que estés aquí!\nTenemos una extensa diversidad de Productos para ti, ¡Disfrutalos!.");
+                
+                // Asignamos en las propiedades de eventos mouseover and mouseout no solo de algunos sino de todos los elementos con la clase .producto recorriendolos todos
+                document.querySelectorAll( '.producto' ).forEach( p => 
+                { 
+                    p.setAttribute( 'onmouseover', "handleMouseOver( this, this.querySelector( 'img' ) )" );
+                    p.setAttribute( 'onmouseout', "handleMouseOut( this, this.querySelector( 'img' ) )" );
+                } );
+            }
+
+            // Evento para cambiar el borde de la imagen cuando el mouse pasa sobre un producto
+            function handleMouseOver( container, productImage ) {
+                container.style.border = "3px solid lightgreen" // Cambio de color de borde
+                productImage.style.border = "2px solid lightgreen";
+            }
+
+            function handleMouseOut( container, productImage ) {
+                container.style.border = ""; // Eliminar el borde cuando el mouse se va
+                productImage.style.border = "";
+            }
+        </script>
     </head>
     <body>
         <iframe class="HeaderIFrameClass" src="../common/header.html" scrolling = "no" title="HeaderFrame"></iframe>
@@ -17,7 +46,7 @@
         <!-- Sección Principal -->
         <main>
             <section id="contenidoSectionId">
-                <h2>Contenido</h2>
+                <h2 onclick="handleMessageClick();" style="cursor: pointer;">Contenido</h2>
                 <nav>
                     <h3>Arreglos Florales</h3>
                     <ul>
@@ -40,22 +69,22 @@
             <section class="Productos">
                 <h2 id="sanValentinTitleId">San Valentín</h2>
                 <div class="GrupoProductos">
-                    <div class="producto">
+                    <div class="producto" >
                         <img src="../common/images/CorazonGirasoles.webp" alt="Corazón de Girasoles">
                         <h3>Corazón de Girasoles</h3>
                         <p>Refinadas Rosas Rojas adornadas con Girasoles en el borde, y con chocolates Ferrero Rocher en el centro.</p>
                     </div>
-                    <div class="producto">
+                    <div class="producto" >
                         <img src="../common/images/LetraRosas.jpg" alt="Letra de Rosas">
                         <h3>Letra de Rosas</h3>
                         <p>Elegante fondo de Rosas Rojas con letras en el centro formadas con Rosas Blancas.</p>
                     </div>
-                    <div class="producto">
+                    <div class="producto" >
                         <img src="../common/images/Bouquet-RosasRosadas_1280.jpg" alt="Bouquet de Rosas Pastel">
                         <h3>Esfera de Rosas Pastel</h3>
                         <p>Sofisticado y fino ramo esférico de Rosas grandes y pequeñas, con colores pastel violeta y Rosado.</p>
                     </div>
-                    <div class="producto">
+                    <div class="producto" >
                         <img src="../common/images/valentine-BouquetRegaloRosasClaras_1280.jpg" alt="Caja Bouquet de Rosas Claras">
                         <h3>Caja Bouquet de Rosas Diversas</h3>
                         <p>Colorido arreglo de Rosas variadas de diferente tipo en una hermosa caja cilíndrica.</p>

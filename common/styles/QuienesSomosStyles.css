@@ -1,24 +1,36 @@
 @import url( "BaseCommonStyles.css" );
 
 #pageMainImageDivId {
-    position: relative;
     background-image: url( "../images/apple_1920.png" );
     height: 1000px;
 
     h1 {
-        margin-left: 3%;
-        line-height: 59pt;
+        width: fit-content;
+        margin-left: 8%;
+        line-height: 39pt;
         font-size: 120pt;
+        color: transparent;
+        background: linear-gradient( 180deg, rgba( 255, 255, 255, 1 ), rgba( 255, 255, 255, .5 ), rgba( 255, 255, 255, 1 ), rgba( 255, 255, 255, 5 ) );
+        background-clip: text;
+        border: 2px solid transparent;
+        transition: color .2s ease-in, border .4s ease-in;
+
+        &:hover {
+            transition: color .3s ease-out, border .5s ease-out;
+        }
     }
 
     #QuienesSomosId {
-        margin-top: 550px;
-        color: var( --foreground-white-color-81 );
+        margin-top: 545px;
+        padding: 50px 0;
+        background: linear-gradient( 50deg, rgba( 255, 255, 255, .99 ), rgba( 255, 255, 255, .5 ), rgba( 255, 255, 255, .99 ), rgba( 255, 255, 255, .7 ) );
+        background-clip: text;
     }
 
     #ConocenosId {  
-        color: white;
-        text-shadow: 1px 1px 10px var( --foreground-gray-5-color );
+        padding-bottom: 50px;
+        background: linear-gradient( 290deg, rgba( 255, 255, 255, .99 ), rgba( 255, 255, 255, .5 ), rgba( 255, 255, 255, .99 ), rgba( 255, 255, 255, .7 ) );
+        background-clip: text;
     }
 }
 

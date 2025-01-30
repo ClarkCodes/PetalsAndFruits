@@ -11,38 +11,67 @@
         <link rel="icon" type="image/x-icon" href="../common/icons/Petals&Fruits_FAVICON.ico" />
         <script src="../common/scripts/Management.js"></script>
         <title>Petals&Fruits - Inicio</title>
+        <script>
+            // Evento para mostrar un mensaje de bienvenida cuando se haga clic en los botones
+            function handleButtonClick( buttonName ) {
+                alert( "¡Gracias por explorar los productos de Petals&Fruits!" );
+            }
+
+            // Evento cuando la página se carga completamente
+            window.onload = function() {
+                console.log( "Bienvenido a la tienda Petals&Fruits. ¡Estamos felices de que estés aquí!" );
+
+                // Asignamos en las propiedades de eventos mouseover and mouseout no solo de algunos sino de todos los elementos con la clase .producto recorriendolos todos
+                document.querySelectorAll( '.producto' ).forEach( p => 
+                { 
+                    p.setAttribute( 'onmouseover', "handleMouseOver( this, this.querySelector( 'img' ) )" );
+                    p.setAttribute( 'onmouseout', "handleMouseOut( this, this.querySelector( 'img' ) )" );
+                } );
+            }
+
+            // Evento para cambiar el borde de la imagen cuando el mouse pasa sobre un producto
+            function handleMouseOver( container, productImage ) {
+                container.style.border = "3px solid lightgreen" // Cambio de color de borde
+                productImage.style.border = "2px solid lightgreen";
+            }
+
+            function handleMouseOut( container, productImage ) {
+                container.style.border = ""; // Eliminar el borde cuando el mouse se va
+                productImage.style.border = "";
+            }
+        </script>
     </head>
     <body>
         <iframe class="HeaderIFrameClass" src="../common/header.html" scrolling = "no" title="HeaderFrame"></iframe>
         <div id="landingWelcomeDivId">
-            <h1>Dílo con Flores...<br> Exprésalo con Frutas.</h1>
+            <h1>Dílo con Flores...<br> Exprésalo con Frutas</h1>
         </div>
         <!-- Sección Principal -->
         <main>
             <section class="hero">
                 <h2>¡Elige tu arreglo perfecto!</h2>
                 <p>Entregamos frescura y elegancia directamente a tu hogar.</p>
-                <button onclick="window.location.href='ProductosServicios.html'">Explorar Productos</button>
+                <button onclick="handleButtonClick('Explorar Productos'); window.location.href='ProductosServicios.html'">Explorar Productos</button>
             </section>
             <section class="Productos">
                 <h2>Top Productos más elegidos</h2>
                 <div class="GrupoProductos">
-                    <div class="producto">
+                    <div class="producto" >
                         <img src="../common/images/Bouquet-RosasRosadas_1280.jpg" alt="Bouquet de Rosas Rosadas">
                         <h3>Esfera de Rosas Pastel</h3>
                         <p>Sofisticado y fino ramo esférico de Rosas grandes y pequeñas, con colores pastel violeta y Rosado.</p>
                     </div>
-                    <div class="producto">
+                    <div class="producto" >
                         <img src="../common/images/Bouquet-RosasBlancasAmarillas_1280.jpg" alt="Rosas Blancas y Amarillas">
                         <h3>Caja Presente de Rosas</h3>
                         <p>Rosas Blancas y Amarillas en una caja de obsequio con un lacito, elegante y detallista.</p>
                     </div>
-                    <div class="producto">
+                    <div class="producto" >
                         <img src="../common/images/Frutales_ChocoFresas_Multisabor-2048x2048.jpg" alt="Multisabor">
                         <h3>Multisabor</h3>
                         <p>Un variado vaso con fresas naturales, y bañadas en chocolate pero aderezadas con diferentes deliciosos aditivos entre maní, coco, chocolate blanco y el que tu elijas.</p>
                     </div>
-                    <div class="producto">
+                    <div class="producto" >
                         <img src="../common/images/Frutales_Gourmet_RebanadasFrutales-2048x2048.webp" alt="Rebanadas Frutales">
                         <h3>Rebanadas Frutales</h3>
                         <p>Una bandeja variada de frutas cortadas en rodajas y rebanadas, ideal para comer en la mañana y compartir.</p>
