@@ -1,7 +1,7 @@
 # Tienda de Arreglos Florales y Frutales
 ###
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/fa2c3155-5d64-48d8-b368-ff78d809c289" width="400" />
+  <img src="https://github.com/user-attachments/assets/0fa65f13-a1e9-4f62-9808-0106f74ca9a9" />
 </p>
 
 ## Aclaración - Disclaimer: 
@@ -9,7 +9,7 @@ Este es un sitio web ficticio, está hecho sin ánimo de lucro alguno y no prete
 
 Petals&Fruits es un proyecto educativo de la Materia de Desarrollo de Aplicaciones Web, del 6to semestre, en la carrera universitaria de **Ingeniería en Software** de la **Universidad de Guayaquil**, en el Ciclo II del periodo 2024 - 2025, en la ciudad de Guayaquil - Ecuador.
 
-Petals&Fruits es un proyecto estudiantil cuyo único objetivo es poner en práctica conocimientos impartidos en la materia, en el ámbito del Desarrollo Web, con herramientas como HTML, CSS, Javascript, PHP y algunas otras, principalmente en la parte del frontend.
+Petals&Fruits es un proyecto estudiantil cuyo único objetivo es poner en práctica conocimientos impartidos en la materia, en el ámbito del Desarrollo Web, con tecnologías como HTML, CSS, Javascript y algunas otras, principalmente en la parte del frontend.
 
 Especialistas en la industria declaran que la única forma de aprender a programar es: "programando", ya que por mucho que nos den y sepamos la teoría, es en la práctica donde realmente se afianza esa teoría y donde se transforma en conocimiento, de otra manera no podriamos decir que realmente hemos aprendido algo, y para ser profesionales competentes, debemos practicar cuanto podamos, así como un médico debe practicar también y entrenar mucho para convertirse en un buen cirujano, en un profesional de excelencia, nosotros desde el campo de la Ingeniería de Software, como estudiantes, debemos hacer lo propio para conocer las tecnologías a profundidad y estar plenamente capacitados y preparados para afrontar retos profesionales, así como adquirir la destreza suficiente en el área técnica para llevar a cabo con éxtio proyectos de desarrollo de software en diferentes ramas de la industria, como lo son el desarrollo de aplicaciones de escritorio, aplicaciones móviles o como en este caso, desarrollo de sitios web, y posteriormente, aplicaciones web, así como muchas otras ramas y cuestiones relacionadas al campo y la industria.
 
@@ -20,14 +20,12 @@ Dado que este sitio web: "Petals&Fruits", es ficticio, también se quizo modific
   <img alt="HTML5 Logo" height="50" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg" gap="7vw">
   <img alt="CSS Logo" height="50" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg" gap="7vw">
   <img alt="Javascript Logo" height="50" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" gap="7vw">
-  <img alt="PHP Logo" width="50" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg" gap="7vw">
 </p>
 
 <p align="center">
   <a href="https://dev.w3.org/html5/spec-LC/"><img src="https://img.shields.io/badge/HTML-5-E34F26.svg?longCache=true&style=plastic&logo=html5&color=E34F26" alt="HTML5 shield image"></a>
   <a href="https://www.w3schools.com/css/"><img src="https://img.shields.io/badge/CSS-3-1572B6.svg?longCache=true&style=plastic&logo=css3&color=1572B6" alt="CSS shield image"></a>
   <a href="https://www.w3schools.com/js/default.asp/"><img src="https://img.shields.io/badge/Javascript--F7DF1E.svg?longCache=true&style=plastic&logo=JavaScript&color=F7DF1E" alt="JavaScript shield image"></a>
-  <a href="https://www.php.net/manual/es/intro-whatis.php"><img src="https://img.shields.io/badge/PHP-8.10.13-777BB4.svg?longCache=true&style=plastic&logo=PHP&color=777BB4" alt="PHP shield image"></a>
 </p>
 
 # Estado del Proyecto
@@ -37,7 +35,7 @@ En cada iteración que hacemos, exploramos opciones y vamos poco a poco mejorand
 
 ## Navegación entre múltiples páginas
 <p align="center">
-    <img src="https://github.com/user-attachments/assets/12e4a8e1-580c-4ed4-953c-cacaa444e8a9" alt="Imágen: Navegación entre páginas - Página de Inicio de PetalsAndFruits" width="1000" />
+    <img src="https://github.com/user-attachments/assets/ed0ae507-1bc5-4b1d-b81d-33339ab6ce79" alt="Imágen: Navegación entre páginas - Página de Inicio de PetalsAndFruits" width="1000" />
     <img src="https://github.com/user-attachments/assets/e3fa3e7c-507c-4f02-84ee-c4ffaadab7e8" alt="Imágen: Navegación entre páginas - Página de Quienes Somos de PetalsAndFruits" width="1000" />
 </p>
 
