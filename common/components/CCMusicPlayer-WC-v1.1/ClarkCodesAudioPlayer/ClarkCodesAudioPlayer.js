@@ -1,5 +1,30 @@
-// Author: ClarkCodes - Web Component del Reproductor de Musica Personalizado ClarkCodesAudioPlayer - Componentizado por ClarkCodes el 6 de Enero del 2025, basado en ClarksAudioPlayer
-// Version: 1.0.0
+// Author: ClarkCodes - Custom Audio Player Web Component ClarkCodesAudioPlayer - Componentized by ClarkCodes on January 6 - 2025, based on its predecessor 'ClarksAudioPlayer'
+// Version: 1.1.0 - done on April 19 - 2025
+
+// ****** Fonts - Adding the needed fonts to the client DOM for the component to be shown properly
+
+function addFonts(){
+    const style = document.createElement( 'style' );
+    style.textContent = `
+        @font-face {
+            font-family: 'Poppins';
+            src: url( ${import.meta.resolve( '../assets/fonts/Poppins-Regular.ttf' )} ) format('truetype');
+            font-weight: 400;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Poppins';
+            src: url( ${import.meta.resolve( '../assets/fonts/Poppins-SemiBold.ttf' )} ) format('truetype');
+            font-weight: 600;
+            font-style: bold;
+        }
+        `;
+    document.head.appendChild( style );
+}
+addFonts();
+
+
+// ****** Web Component - The component encapsulated class
 
 export class ClarkCodesAudioPlayer extends HTMLElement {
     constructor() {
@@ -27,18 +52,20 @@ export class ClarkCodesAudioPlayer extends HTMLElement {
         }); 
         
         // Setting Title, Artist and Album visually in the corresponding interface elements
-        songTitle.innerHTML = this.hasAttribute( 'song-name' ) ? this.getAttribute( 'song-name' ) : 'Sin Nombre';
-        songArtistAlbum.innerHTML = this.hasAttribute( 'artist-album' ) ? this.getAttribute( 'artist-album' ) : 'Sin Artista - Sin Álbum';
+        songTitle.innerHTML = this.hasAttribute( 'song-name' ) ? this.getAttribute( 'song-name' ) : 'Desconocido';
+        songArtistAlbum.innerHTML = this.hasAttribute( 'artist' ) ? this.getAttribute( 'artist' ) : 'Artista Desconocido';
+
+        this.hasAttribute( 'album' ) && ( songArtistAlbum.innerHTML += ' - ' + this.getAttribute( 'album' ) );
 
         // Setting the Background Song Album Cover Image
-        this.coverImageToSet = this.hasAttribute( 'cover-img' ) ? this.getAttribute( 'cover-img' ) : '../common/images/Superman_ManOfSteel_Logo_OnBlack.jpg';
+        this.coverImageToSet = this.hasAttribute( 'cover-img' ) ? this.getAttribute( 'cover-img' ) : import.meta.resolve( '../assets/images/Superman_ManOfSteel_Logo_OnBlack.jpg' ); // If the cover-img attribute doesn't exist it resolves the absolute path in the server to the fallback image and sets it as cover image
         const styleSheet = this.shadowRootDOM.querySelector( '#playerStyleSheetId' ).sheet; 
         const fullRule = `.PlayerContainer::before { background-image: url( ${this.coverImageToSet} ); }`; // Construct the full rule
         styleSheet.insertRule( fullRule, styleSheet.cssRules.length ); // Insert the rule into the stylesheet 
     } 
     
     static get observedAttributes() { 
-        return ['src', 'type', 'autoplay', 'loop', 'song-name', 'artist-album', 'cover-img']; 
+        return ['src', 'type', 'autoplay', 'loop', 'song-name', 'artist', 'album', 'cover-img']; 
     }
 
     render() {
@@ -54,44 +81,65 @@ export class ClarkCodesAudioPlayer extends HTMLElement {
         // ****** Declarations - Getting Elements
 
         this.isSeeking = false;
+
         const audio = this.shadowRootDOM.querySelector( '#audioSongId' );
         this.audio = audio;
+
         const clarkCodesImagotypeButton = this.shadowRootDOM.querySelector( '#clarkCodesLogoImagotypeButtonId' );
         this.clarkCodesImagotypeButton = clarkCodesImagotypeButton;
+
         const clarkCodesLogoTextImage = this.shadowRootDOM.querySelector( '#clarkCodesLogoTextId' );
         this.clarkCodesLogoTextImage = clarkCodesLogoTextImage;
+
         const progressBarSlider = this.shadowRootDOM.querySelector( '#progressBarSliderId' );
         this.progressBarSlider = progressBarSlider;
+
         const currentTime = this.shadowRootDOM.querySelector( '#currentTimeId' );
         this.currentTime = currentTime;
+
         const totalTime = this.shadowRootDOM.querySelector( '#totalTimeId' );
         this.totalTime = totalTime;
+
         const playPauseReplayButton = this.shadowRootDOM.querySelector( '#playPauseReplayButtonId' );
         this.playPauseReplayButton = playPauseReplayButton;
-        const playPauseReplayImage = this.shadowRootDOM.querySelector( '#playPauseReplayButtonId img' );
-        this.playPauseReplayImage = playPauseReplayImage;
+
         const stopButton = this.shadowRootDOM.querySelector( '#stopButtonId' );
         this.stopButton = stopButton;
+
         const volumeButton = this.shadowRootDOM.querySelector( '#volumeButtonId' );
         this.volumeButton = volumeButton;
-        const volumeImage = this.shadowRootDOM.querySelector( '#volumeButtonId img' );
-        this.volumeImage = volumeImage;
+
         const volumeSlider = this.shadowRootDOM.querySelector( '#volumeSliderId' );
         this.volumeSlider = volumeSlider;
+
         const volumeValue = this.shadowRootDOM.querySelector( '#volumeValueId' );
         this.volumeValue = volumeValue;
 
-        const playIcon = '../common/icons/play_arrow_24dp_E8EAED_FILL1_wght400_GRAD0_opsz24.svg';
+
+        // Button Icons svgs
+
+        const playIcon = `<svg height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M320-273v-414q0-17 12-28.5t28-11.5q5 0 10.5 1.5T381-721l326 207q9 6 13.5 15t4.5 19q0 10-4.5 19T707-446L381-239q-5 3-10.5 4.5T360-233q-16 0-28-11.5T320-273Z"/></svg>`;
         this.playIcon = playIcon;
-        const pauseIcon = '../common/icons/pause_24dp_E8EAED_FILL1_wght400_GRAD0_opsz24.svg';
+        this.playPauseReplayButton.innerHTML = this.playIcon;
+
+        const pauseIcon = `<svg height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M640-200q-33 0-56.5-23.5T560-280v-400q0-33 23.5-56.5T640-760q33 0 56.5 23.5T720-680v400q0 33-23.5 56.5T640-200Zm-320 0q-33 0-56.5-23.5T240-280v-400q0-33 23.5-56.5T320-760q33 0 56.5 23.5T400-680v400q0 33-23.5 56.5T320-200Z"/></svg>`;
         this.pauseIcon = pauseIcon;
-        const replayIcon = '../common/icons/replay_24dp_E8EAED_FILL1_wght400_GRAD0_opsz24.svg';
+
+        const stopIcon = `<svg height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M240-320v-320q0-33 23.5-56.5T320-720h320q33 0 56.5 23.5T720-640v320q0 33-23.5 56.5T640-240H320q-33 0-56.5-23.5T240-320Z"/></svg>`;
+        this.stopIcon = stopIcon;
+        this.stopButton.innerHTML = this.stopIcon;
+
+        const replayIcon = `<svg height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M480-80q-75 0-140.5-28.5t-114-77q-48.5-48.5-77-114T120-440q0-17 11.5-28.5T160-480q17 0 28.5 11.5T200-440q0 117 81.5 198.5T480-160q117 0 198.5-81.5T760-440q0-117-81.5-198.5T480-720h-6l34 34q12 12 11.5 28T508-630q-12 12-28.5 12.5T451-629L348-732q-12-12-12-28t12-28l103-103q12-12 28.5-11.5T508-890q11 12 11.5 28T508-834l-34 34h6q75 0 140.5 28.5t114 77q48.5 48.5 77 114T840-440q0 75-28.5 140.5t-77 114q-48.5 48.5-114 77T480-80Z"/></svg>`;
         this.replayIcon = replayIcon;
-        const highVolumeIcon = '../common/icons/volume_up_24dp_E8EAED_FILL1_wght400_GRAD0_opsz24.svg';
+
+        const highVolumeIcon = `<svg height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M760-481q0-83-44-151.5T598-735q-15-7-22-21.5t-2-29.5q6-16 21.5-23t31.5 0q97 43 155 131.5T840-481q0 108-58 196.5T627-153q-16 7-31.5 0T574-176q-5-15 2-29.5t22-21.5q74-34 118-102.5T760-481ZM280-360H160q-17 0-28.5-11.5T120-400v-160q0-17 11.5-28.5T160-600h120l132-132q19-19 43.5-8.5T480-703v446q0 27-24.5 37.5T412-228L280-360Zm380-120q0 42-19 79.5T591-339q-10 6-20.5.5T560-356v-250q0-12 10.5-17.5t20.5.5q31 25 50 63t19 80Z"/></svg>`; 
         this.highVolumeIcon = highVolumeIcon;
-        const lowVolumeIcon = '../common/icons/volume_down_alt_24dp_E8EAED_FILL1_wght400_GRAD0_opsz24.svg';
+
+        const lowVolumeIcon = `<svg height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M360-360H240q-17 0-28.5-11.5T200-400v-160q0-17 11.5-28.5T240-600h120l132-132q19-19 43.5-8.5T560-703v446q0 27-24.5 37.5T492-228L360-360Zm380-120q0 42-19 79.5T671-339q-10 6-20.5.5T640-356v-250q0-12 10.5-17.5t20.5.5q31 25 50 63t19 80Z"/></svg>`; 
         this.lowVolumeIcon = lowVolumeIcon;
-        const mutedIcon = '../common/icons/no_sound_24dp_E8EAED_FILL1_wght400_GRAD0_opsz24.svg';
+        this.volumeButton.innerHTML = this.lowVolumeIcon;
+        
+        const mutedIcon = `<svg height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="m720-424-76 76q-11 11-28 11t-28-11q-11-11-11-28t11-28l76-76-76-76q-11-11-11-28t11-28q11-11 28-11t28 11l76 76 76-76q11-11 28-11t28 11q11 11 11 28t-11 28l-76 76 76 76q11 11 11 28t-11 28q-11 11-28 11t-28-11l-76-76Zm-440 64H160q-17 0-28.5-11.5T120-400v-160q0-17 11.5-28.5T160-600h120l132-132q19-19 43.5-8.5T480-703v446q0 27-24.5 37.5T412-228L280-360Z"/></svg>`; 
         this.mutedIcon = mutedIcon;
 
 
@@ -120,9 +168,9 @@ export class ClarkCodesAudioPlayer extends HTMLElement {
 <div class="PlayerContainer">
     <div class="ClarkCodesLogoClass">
         <button id="clarkCodesLogoImagotypeButtonId">
-            <img id="clarkCodesLogoImagotypeId" src="../common/images/ClarkCodes Logo OnTransparent_100x100px_300ppi.webp" width="30px" alt="ClarkCodes Logo Imgotipo">
+            <img id="clarkCodesLogoImagotypeId" src=${import.meta.resolve( '../assets/images/ClarkCodes Logo OnTransparent_100x100px_300ppi.webp' )} width="30px" alt="ClarkCodes Logo Imgotipo">
         </button>
-        <img id="clarkCodesLogoTextId" src="../common/images/ClarkCodes only Text OnTransparent.webp" width="30px" alt="ClarkCodes Logo Text">
+        <img id="clarkCodesLogoTextId" src=${import.meta.resolve( '../assets/images/ClarkCodes only Text OnTransparent.webp' )} width="30px" alt="ClarkCodes Logo Text">
     </div>
     <div class="BasicInfoClass">
         <h2 id="titleId"></h2>
@@ -138,18 +186,12 @@ export class ClarkCodesAudioPlayer extends HTMLElement {
     <div class="ControlsClass">
         <div id="controlsLeftSpacer"></div>
         <div class="MainControlsClass">
-            <button id="playPauseReplayButtonId">
-                <img src="../common/icons/play_arrow_24dp_E8EAED_FILL1_wght400_GRAD0_opsz24.svg" alt="Play and Pause Icon">
-            </button>
-            <button id="stopButtonId">
-                <img src="../common/icons/stop_24dp_E8EAED_FILL1_wght400_GRAD0_opsz24.svg" alt="Stop Icon">
-            </button>
+            <button id="playPauseReplayButtonId"></button>
+            <button id="stopButtonId"></button>
         </div>
         <div class="RightSideControlsClass">
             <div class="VolumeControlClass">
-                <button id="volumeButtonId">
-                    <img src="../common/icons/volume_down_alt_24dp_E8EAED_FILL1_wght400_GRAD0_opsz24.svg" alt="Volume Icon">
-                </button>
+                <button id="volumeButtonId"></button>
                 <div class="VolumeSliderClass">
                     <input type="range" id="volumeSliderId" min="0" max="100" value="50">
                     <span id="volumeValueId">50</span>
@@ -409,7 +451,7 @@ h3 {
         margin-top: 49px;
         width: 84%;
 
-        img {
+        svg {
             scale: 1.7;
         }
 
@@ -572,7 +614,7 @@ audio {
     }
 
     songEnd() {
-        this.playPauseReplayImage.setAttribute( 'src', this.replayIcon );
+        this.playPauseReplayButton.innerHTML = this.replayIcon;
     }
 
     toggleMute() {
@@ -585,7 +627,7 @@ audio {
         else {
             this.audio.muted = true;
             this.volumeSlider.value = 0;
-            this.volumeImage.setAttribute( 'src', this.mutedIcon );
+            this.volumeButton.innerHTML = this.mutedIcon;
         }
     
         this.volumeValue.textContent = this.volumeSlider.value;
@@ -603,14 +645,16 @@ audio {
     }
 
     updatePlayPauseIcon() {
-        this.playPauseReplayImage.setAttribute( 'src', ( this.audio.paused ? this.playIcon : this.pauseIcon ) );
+        this.playPauseReplayButton.innerHTML = this.audio.paused ? this.playIcon : this.pauseIcon;
     }
 
     updateVolumeIcon( volume ) {
-        this.volumeImage.setAttribute( 'src', volume == 0 ? this.mutedIcon : ( ( volume >= 50 ) ? this.highVolumeIcon : this.lowVolumeIcon ) );
+        this.volumeButton.innerHTML = volume == 0 ? this.mutedIcon : ( ( volume > 50 ) ? this.highVolumeIcon : this.lowVolumeIcon );
     }
 
     openClarkCodesGitHubRepositoryLink() {
         window.open('https://github.com/ClarkCodes', '_blank');
     }
 }
+
+customElements.define( 'cc-audio-player', ClarkCodesAudioPlayer );
